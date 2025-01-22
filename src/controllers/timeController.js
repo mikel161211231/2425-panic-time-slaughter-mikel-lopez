@@ -18,7 +18,21 @@ const getTimeHistory = async (req, res) => {
     }
 }
 
+const executeDayActions = async (req, res) => {
+    try {
+        await timeServices.makeTravesia();
+        res.send({ status: "OK" })
+    } catch (error) {
+        res
+            .status(error?.status || 500)
+            .send({status: "FAILED",
+                message: "ERROR while making the petition:",
+                data: {error: error?.message || error}
+            });
+    }
+}
 
 module.exports = {
     getTimeHistory,
+    executeDayActions,
 }
