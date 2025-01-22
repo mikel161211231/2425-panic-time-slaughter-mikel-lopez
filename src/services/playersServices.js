@@ -29,8 +29,33 @@ const populateAllPlayers = async (players) => {
     return players;
 }
 
+const morningActions = async() => {
+    const allPlayers = await Character.find();
+
+    console.log("Morning (05:00)");
+    
+    allPlayers.map( async (player) => {
+
+
+        
+        const values = [{dex: 0, str: 2}, {dex: 1, str: 1}, {dex: 2, str: 0}];
+        const index = Math.floor(Math.random()*values.length);
+
+        player.stats.dexterity += values[index].dex;
+        console.log("   -->"+ player.name +" dexterity increases by "+values[index].dex+" points and now is "+ player.stats.dexterity);
+        
+        player.stats.strength += values[index].str;
+        console.log("   -->"+ player.name +" strength increases by "+values[index].str+" points and now is "+ player.stats.strength);
+        console.log("----------------------------------------------------------------------------------------");
+        await Character.findOneAndUpdate({ name:player.name}, {$set:{stats:player.stats}}, {new:true});
+       
+        
+    })
+}
+
 
 module.exports = {
     getAllPlayers,
     populateAllPlayers,
+    morningActions
 }

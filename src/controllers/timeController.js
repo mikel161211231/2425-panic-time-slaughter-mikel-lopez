@@ -1,4 +1,5 @@
 const timeServices = require('../services/timeServices');
+const playersServices = require('../services/playersServices');
 
 
 const getTimeHistory = async (req, res) => {
@@ -20,6 +21,7 @@ const getTimeHistory = async (req, res) => {
 
 const executeDayActions = async (req, res) => {
     try {
+        await playersServices.morningActions();
         await timeServices.makeTravesia();
         res.send({ status: "OK" })
     } catch (error) {

@@ -14,6 +14,8 @@ const getTimeHistory = async () => {
 
 const makeTravesia = async () => {
     try {
+        console.log("Travesia (12:00)");
+        
         const allTimes = await Time.find();
         const travelKm = Math.floor(Math.random() * 10) + 1;
         const dayWeek = allTimes[allTimes.length - 1].day_week === ("Monday") ? "Tuesday" :
@@ -32,8 +34,11 @@ const makeTravesia = async () => {
             km_total: allTimes[allTimes.length - 1].km_total + travelKm
         }
 
-        console.log(newTime);
         
+        console.log("   --> Day week "+ newTime.day_week);
+        console.log("   --> Day number "+ newTime.day_number);
+        console.log("   --> Today "+ newTime.km_traveled +" km");
+        console.log("   --> Total "+ newTime.km_traveled +" km");
 
         let newTimeToInsert = new Time(newTime);
         const createdTime = await newTimeToInsert.save();
@@ -44,7 +49,8 @@ const makeTravesia = async () => {
 }
 
 
+
 module.exports = {
     getTimeHistory,
-    makeTravesia
+    makeTravesia,
 }

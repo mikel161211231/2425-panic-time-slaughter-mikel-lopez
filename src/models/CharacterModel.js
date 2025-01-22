@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 // Create the object of the schema and their attributes
 const characterSchema = new Schema({
-    id: String,
+    id: mongoose.Schema.Types.ObjectId,
     name: String,
     occupation: String,
     description: String,
@@ -16,7 +16,7 @@ const characterSchema = new Schema({
         stamina: Number
     },
     equipment: {
-        saddlebag:  [ mongoose.Schema.Types.ObjectId],
+        saddlebag:  [ {type: mongoose.Schema.Types.ObjectId, ref: "Saddlebag" }],
         quiver: Number,
         weapons: [{ type: mongoose.Schema.Types.ObjectId, ref: "Weapon" }],
         pouch: {
