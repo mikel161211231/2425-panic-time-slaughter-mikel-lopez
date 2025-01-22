@@ -10,7 +10,7 @@ const saddlebagSchema = new Schema({
     name: String,
     description: String,
     recover_stamina: Number,
-});
+}, { collection : 'saddlebag' });
 
 // Export the model to use on other files
 module.exports = mongoose.model('Saddlebag', saddlebagSchema)

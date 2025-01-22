@@ -24,10 +24,13 @@ const characterSchema = new Schema({
             gold: Number,
             precious_stones: [String]
         },
+        miscellaneous: [],
     },
 
-    miscellaneous: [],
-});
+    
+}, { collection : 'characters' });
 
 // Export the model to use on other files
 module.exports = mongoose.model('Character', characterSchema)
+
+

@@ -11,7 +11,7 @@ const timeSchema = new Schema({
     day_week: String,
     km_traveled: Number,
     km_total: Number
-});
+}, { collection : 'time' });
 
 // Export the model to use on other files
 module.exports = mongoose.model('Time', timeSchema)

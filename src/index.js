@@ -4,7 +4,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const mongodbRoute = 'mongodb+srv://mikellopez:LgJaK1L920MOT813@cluster0.wkjfl.mongodb.net/TimeSlaughter';
 
-// const allRouter = require("./routes/allRoutes");
+const playersRouter = require("./routes/playerRoutes");
+const timeRouter = require("./routes/timeRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,7 +13,9 @@ const PORT = process.env.PORT || 3000;
 // Use bodyparser
 app.use(bodyParser.json());
 
-// app.use("/api/routes", allRouter);
+app.use("/api/players", playersRouter);
+app.use("/api/time", timeRouter);
+
 
 async function start() {
     try {

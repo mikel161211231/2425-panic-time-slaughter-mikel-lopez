@@ -10,7 +10,7 @@ const preciousStoneSchema = new Schema({
     name: String,
     description: String,
     value: Number,
-});
+}, { collection : 'precious_stones' });
 
 // Export the model to use on other files
 module.exports = mongoose.model('PreciousStone', preciousStoneSchema)

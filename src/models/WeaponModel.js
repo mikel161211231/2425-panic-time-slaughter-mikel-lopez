@@ -12,7 +12,7 @@ const weaponSchema = new Schema({
     num_die_damage: Number,
     type: String,
     quality: Number
-});
+}, { collection : 'weapons' });
 
 // Export the model to use on other files
 module.exports = mongoose.model('Weapon', weaponSchema)
