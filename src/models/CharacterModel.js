@@ -16,13 +16,13 @@ const characterSchema = new Schema({
         stamina: Number
     },
     equipment: {
-        saddlebag: [String],
+        saddlebag:  [ mongoose.Schema.Types.ObjectId],
         quiver: Number,
-        weapons: [String],
+        weapons: [{ type: mongoose.Schema.Types.ObjectId, ref: "Weapon" }],
         pouch: {
             coins: Number,
             gold: Number,
-            precious_stones: [String]
+            precious_stones: [{ type: mongoose.Schema.Types.ObjectId, ref: "PreciousStone" }]
         },
         miscellaneous: [],
     },
