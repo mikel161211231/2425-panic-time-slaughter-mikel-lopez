@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 // Create the object of the schema and their attributes
 const saddlebagSchema = new Schema({
-    id: String,
+    id: mongoose.Schema.Types.ObjectId,
     name: String,
     description: String,
     recover_stamina: Number,

@@ -7,9 +7,13 @@ const getAllPlayers = async () => {
         const playersPopulated = await Character.find();
         // Poblamos el equipo
         playersPopulated.map(async (playerPopulated) => {
-            await playerPopulated.equipment.populate('Saddlebag');
-            await playerPopulated.equipment.populate('Weapon');
-            await playerPopulated.equipment.pouch.populate('precious_stones');
+            // await playerPopulated.equipment.populate('saddlebag');
+            // await playerPopulated.equipment.populate('weapon');
+            // await playerPopulated.equipment.pouch.populate('precious_stones');
+
+           console.log(playerPopulated.equipment.weapons);
+           console.log(playerPopulated.equipment.saddlebag);
+           console.log(playerPopulated.equipment.pouch.precious_stones);
         });
 
         return playersPopulated;
@@ -19,13 +23,6 @@ const getAllPlayers = async () => {
 }
 
 const populateAllPlayers = async (players) => {
-
-    // players.map(async (playerPopulated) => {
-    //     await playerPopulated.equipment.populate('saddlebag');
-    //     await playerPopulated.equipment.populate('weapons');
-    //     await playerPopulated.equipment.pouch.populate('precious_stones');
-    //     console.log(playerPopulated.equipment);
-    // });
     return players;
 }
 

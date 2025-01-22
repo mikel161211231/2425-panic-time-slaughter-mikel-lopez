@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 // Create the object of the schema and their attributes
 const timeSchema = new Schema({
-    id: String,
+    id: mongoose.Schema.Types.ObjectId,
     day_number: Number,
     day_week: String,
     km_traveled: Number,

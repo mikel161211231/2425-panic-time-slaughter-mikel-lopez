@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const mongodbRoute = 'mongodb+srv://mikellopez:LgJaK1L920MOT813@cluster0.wkjfl.mongodb.net/TimeSlaughter';
+const mongodbRoute = process.env.MONGO_URI;
 
 const playersRouter = require("./routes/playerRoutes");
 const timeRouter = require("./routes/timeRoutes");

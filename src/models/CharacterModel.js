@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 // Use the schemas
 const { Schema } = mongoose;
 
+
 // Create the object of the schema and their attributes
 const characterSchema = new Schema({
     id: mongoose.Schema.Types.ObjectId,
@@ -16,13 +17,13 @@ const characterSchema = new Schema({
         stamina: Number
     },
     equipment: {
-        saddlebag:  [ {type: mongoose.Schema.Types.ObjectId, ref: "Saddlebag" }],
+        saddlebag:  [ {type:mongoose.Schema.Types.ObjectId, ref:'Saddlebag' }],
         quiver: Number,
-        weapons: [{ type: mongoose.Schema.Types.ObjectId, ref: "Weapon" }],
+        weapons: [{ type: mongoose.Schema.Types.ObjectId, ref:'Weapon' }],
         pouch: {
             coins: Number,
             gold: Number,
-            precious_stones: [{ type: mongoose.Schema.Types.ObjectId, ref: "PreciousStone" }]
+            precious_stones: [{ type: mongoose.Schema.Types.ObjectId, ref:'PreciousStone' }]
         },
         miscellaneous: [],
     },
