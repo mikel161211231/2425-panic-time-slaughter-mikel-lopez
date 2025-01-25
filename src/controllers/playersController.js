@@ -4,9 +4,9 @@ const playersServices = require('../services/playersServices');
 const getAllPlayers = async (req, res) => {
     try {
         const allPlayers = await playersServices.getAllPlayers();
-        if (allPlayers.length === 0) {
-            return res.status(404).send({ message: "Does not exist any player" });
-        }
+        // if (allPlayers.length === 0) {
+        //     return res.status(404).send({ message: "Does not exist any player" });
+        // }
         const populateAllPlayers = await playersServices.populateAllPlayers(allPlayers);
         res.send({ status: "OK", data: populateAllPlayers })
     } catch (error) {
